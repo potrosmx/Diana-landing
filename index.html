@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diana Belinda Nuevo Rosas - Account Manager en INTRALOX. Soluciones de cadena de suministro">
+    <meta name="theme-color" content="#D32F2F">
+    
+    <!-- Open Graph para compartir en redes -->
+    <meta property="og:title" content="Diana Belinda Nuevo Rosas - Account Manager INTRALOX">
+    <meta property="og:description" content="Conecta con Diana Nuevo Rosas, Account Manager en INTRALOX. WhatsApp, email y más.">
+    <meta property="og:type" content="website">
+    
+    <title>Diana Nuevo Rosas - Account Manager INTRALOX</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header con fondo corporativo */
+        .card-header {
+            background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
+            padding: 40px 20px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Fotografía circular */
+        .photo-container {
+            position: relative;
+            margin: -60px auto 0;
+            width: 120px;
+            height: 120px;
+            z-index: 10;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            background: #f0f0f0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contenido principal */
+        .card-body {
+            padding: 60px 25px 30px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #D32F2F;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #D32F2F;
+            margin: 20px auto;
+            border-radius: 1px;
+        }
+
+        /* Información de contacto */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .contact-item {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #D32F2F;
+        }
+
+        .contact-item-label {
+            font-weight: 600;
+            color: #333;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item-value {
+            font-size: 12px;
+            color: #555;
+            word-break: break-word;
+        }
+
+        /* Botones de acción */
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 14px 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: #D32F2F;
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        .btn-primary:hover {
+            background: #B71C1C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            background: #efefef;
+            border-color: #D32F2F;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        /* Iconos SVG inline */
+        .icon {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .card-footer {
+            background: #f9f9f9;
+            padding: 18px 25px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .web-link {
+            display: inline-block;
+            color: #D32F2F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .web-link:hover {
+            color: #B71C1C;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                border-radius: 16px;
+            }
+
+            .card-header {
+                padding: 30px 15px 20px;
+            }
+
+            .card-body {
+                padding: 50px 20px 25px;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 12px 14px;
+                font-size: 12px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animación hover suave para tarjeta */
+        .card:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Header con logo -->
+            <div class="card-header">
+                <div class="logo-container">
+                    <img src="intralox-logo.png" alt="INTRALOX Logo" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <!-- Fotografía circular -->
+            <div class="photo-container">
+                <img src="diana.jpg" alt="Diana Belinda Nuevo Rosas" class="photo">
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="card-body">
+                <h1 class="name">Diana Belinda Nuevo Rosas</h1>
+                <div class="title">Account Manager</div>
+                <div class="company">INTRALOX</div>
+
+                <div class="divider"></div>
+
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-item-label">Email</span>
+                        <span class="contact-item-value">diana.nuevo@intralox.com.mx</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-item-label">WhatsApp</span>
+                        <span class="contact-item-value">+52 722 261 7192</span>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="actions">
+                    <a href="https://wa.me/527222617192" class="btn btn-primary" title="Enviar mensaje por WhatsApp">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.069.338-2.955.967l-.21.138-2.175-.571.581 2.087.135.214c-.57.936-.898 2.01-.898 3.15 0 3.402 2.769 6.162 6.163 6.162 1.65 0 3.195-.635 4.363-1.786 1.168-1.15 1.813-2.686 1.813-4.357 0-3.393-2.77-6.162-6.163-6.162m5.204-3.799c2.902 2.909 4.692 6.927 4.692 11.326 0 8.841-7.19 16.02-16.02 16.02C6.455 23.99 0 17.537 0 9.696 0 1.856 7.19 0 16.02 0c4.4 0 8.419 1.791 11.326 4.695z"/>
+                        </svg>
+                        WhatsApp
+                    </a>
+                    <a href="mailto:diana.nuevo@intralox.com.mx" class="btn btn-secondary" title="Enviar correo electrónico">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://www.intralox.com/es" target="_blank" rel="noopener" class="btn btn-secondary" title="Visitar sitio web">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        Web
+                    </a>
+                    <button onclick="descargarVCard()" class="btn btn-secondary" title="Guardar contacto">
+                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54h2.86v4h2v-4h2.86l-2.75-3.54 1.96-2.36H9.5V4h-2v4H4.64l1.96 2.36z"/>
+                        </svg>
+                        Contacto
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="card-footer">
+                <p class="footer-text">© 2024 INTRALOX</p>
+                <a href="https://www.intralox.com/es" class="web-link">www.intralox.com/es</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Función para generar y descargar vCard (archivo .vcf)
+         */
+        function descargarVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Diana Belinda Nuevo Rosas
+N:Nuevo Rosas;Diana Belinda;;;
+ORG:INTRALOX
+TITLE:Account Manager
+EMAIL;TYPE=WORK:diana.nuevo@intralox.com.mx
+TEL;TYPE=CELL,WHATSAPP:+527222617192
+URL:https://www.intralox.com/es
+END:VCARD`;
+
+            // Crear blob con el contenido
+            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
+            
+            // Crear enlace temporal y disparar descarga
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'Diana-Nuevo-Rosas-INTRALOX.vcf');
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Feedback visual al descargar contacto
+        document.querySelector('button[onclick="descargarVCard()"]').addEventListener('click', function(e) {
+            const originalText = this.textContent;
+            this.textContent = '✓ Descargado';
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

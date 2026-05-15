@@ -1,410 +1,550 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Diana Belinda Nuevo Rosas - Account Manager en INTRALOX. Soluciones de cadena de suministro">
-    <meta name="theme-color" content="#D32F2F">
-    
-    <!-- Open Graph para compartir en redes -->
-    <meta property="og:title" content="Diana Belinda Nuevo Rosas - Account Manager INTRALOX">
-    <meta property="og:description" content="Conecta con Diana Nuevo Rosas, Account Manager en INTRALOX. WhatsApp, email y más.">
-    <meta property="og:type" content="website">
-    
-    <title>Diana Nuevo Rosas - Account Manager INTRALOX</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diana Belinda Nuevo Rosas | Account Manager | INTRALOX</title>
+  <meta name="description" content="Tarjeta digital de contacto profesional de Diana Belinda Nuevo Rosas, Account Manager de INTRALOX." />
+  <meta property="og:title" content="Diana Belinda Nuevo Rosas | Account Manager | INTRALOX" />
+  <meta property="og:description" content="Tarjeta digital de contacto profesional de Diana Belinda Nuevo Rosas, Account Manager de INTRALOX." />
+  <meta property="og:type" content="profile" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    :root {
+      --red:        #CE0E2D;
+      --red-dark:   #a50b25;
+      --red-glow:   rgba(206,14,45,0.22);
+      --charcoal:   #111318;
+      --dark:       #1c1f28;
+      --ink:        #1a1a1a;
+      --slate:      #444a56;
+      --muted:      #7a8091;
+      --silver:     #e8eaed;
+      --fog:        #f4f5f7;
+      --white:      #ffffff;
+      --wa:         #22c55e;
+      --wa-dark:    #16a34a;
+      --r:          20px;
+      --r-sm:       12px;
+      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+      --spring:     cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-        .container {
-            width: 100%;
-            max-width: 420px;
-        }
+    html { scroll-behavior: smooth; }
 
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            animation: slideIn 0.6s ease-out;
-        }
+    body {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   'Helvetica Neue', Arial, sans-serif;
+      background: var(--charcoal);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% -5%, var(--red-glow) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 50% 110%, rgba(206,14,45,0.06) 0%, transparent 60%);
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        /* Header con fondo corporativo */
-        .card-header {
-            background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%);
-            padding: 40px 20px 30px;
-            text-align: center;
-            color: white;
-        }
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      background: var(--white);
+      border-radius: var(--r);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04),
+        0 8px 32px rgba(0,0,0,0.28),
+        0 32px 80px rgba(0,0,0,0.22),
+        0 2px 16px var(--red-glow);
+      overflow: hidden;
+      animation: cardIn .7s var(--spring) both;
+    }
 
-        .logo-container {
-            margin-bottom: 25px;
-            display: flex;
-            justify-content: center;
-        }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(28px) scale(0.96); }
+      to   { opacity: 1; transform: none; }
+    }
 
-        .logo-container img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
+    .card > * { animation: fadeUp .5s var(--spring) both; }
+    .card-header  { animation-delay: .05s; }
+    .card-body    { animation-delay: .15s; }
+    .card-footer  { animation-delay: .25s; }
 
-        /* Fotografía circular */
-        .photo-container {
-            position: relative;
-            margin: -60px auto 0;
-            width: 120px;
-            height: 120px;
-            z-index: 10;
-        }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
 
-        .photo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 5px solid white;
-            object-fit: cover;
-            background: #f0f0f0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
+    .card-header {
+      position: relative;
+      background: linear-gradient(160deg, #111318 0%, #1c202c 100%);
+      padding: 28px 28px 80px;
+      overflow: hidden;
+    }
 
-        /* Contenido principal */
-        .card-body {
-            padding: 60px 25px 30px;
-            text-align: center;
-        }
+    .card-header::after {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red-dark), #f0254a, var(--red-dark));
+    }
 
-        .name {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 5px;
-            letter-spacing: 0.3px;
-        }
+    .card-header::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 56px;
+      background: var(--white);
+      border-radius: 55% 55% 0 0 / 100% 100% 0 0;
+    }
 
-        .title {
-            font-size: 14px;
-            color: #D32F2F;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
+    .hd {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hd-1 { top: -28px; right: -28px; width: 150px; height: 150px; border: 1px solid rgba(206,14,45,0.18); }
+    .hd-2 { top: -8px;  right: -8px;  width: 110px; height: 110px; border: 1px solid rgba(255,255,255,0.05); }
+    .hd-3 { bottom: 32px; left: -40px; width: 100px; height: 100px; border: 1px solid rgba(206,14,45,0.1); }
 
-        .company {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 25px;
-        }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
 
-        .divider {
-            width: 50px;
-            height: 2px;
-            background: #D32F2F;
-            margin: 20px auto;
-            border-radius: 1px;
-        }
+    .logo-img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
 
-        /* Información de contacto */
-        .contact-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 30px;
-            font-size: 12px;
-            color: #666;
-        }
+    .logo-fb { display: none; align-items: center; gap: 9px; }
 
-        .contact-item {
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
-            border-left: 3px solid #D32F2F;
-        }
+    .logo-fb-icon {
+      width: 30px; height: 30px;
+      background: var(--red);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-        .contact-item-label {
-            font-weight: 600;
-            color: #333;
-            display: block;
-            margin-bottom: 4px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .logo-fb-text {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
 
-        .contact-item-value {
-            font-size: 12px;
-            color: #555;
-            word-break: break-word;
-        }
+    .photo-anchor {
+      position: absolute;
+      bottom: -52px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
 
-        /* Botones de acción */
-        .actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
+    .photo-ring {
+      width: 108px; height: 108px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(145deg, var(--red) 0%, #f83358 100%);
+      box-shadow: 0 6px 28px rgba(206,14,45,0.40), 0 2px 8px rgba(0,0,0,0.25);
+    }
 
-        .btn {
-            padding: 14px 16px;
-            border: none;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .photo-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 3.5px solid var(--white);
+      overflow: hidden;
+      background: var(--fog);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .btn-primary {
-            background: #D32F2F;
-            color: white;
-            grid-column: 1 / -1;
-        }
+    .photo-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
 
-        .btn-primary:hover {
-            background: #B71C1C;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
-        }
+    .photo-ph {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #dde0e6 0%, #c8ccd4 100%);
+      border-radius: 50%;
+    }
 
-        .btn-primary:active {
-            transform: translateY(0);
-        }
+    .card-body { padding: 64px 28px 28px; text-align: center; }
 
-        .btn-secondary {
-            background: #f5f5f5;
-            color: #333;
-            border: 1px solid #e0e0e0;
-        }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(206,14,45,0.08);
+      color: var(--red);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid rgba(206,14,45,0.2);
+      margin-bottom: 10px;
+    }
 
-        .btn-secondary:hover {
-            background: #efefef;
-            border-color: #D32F2F;
-            transform: translateY(-2px);
-        }
+    .badge::before {
+      content: '';
+      display: block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
 
-        .btn-secondary:active {
-            transform: translateY(0);
-        }
+    .name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 5px;
+    }
 
-        /* Iconos SVG inline */
-        .icon {
-            width: 18px;
-            height: 18px;
-            display: inline-block;
-        }
+    .company-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
 
-        /* Footer */
-        .card-footer {
-            background: #f9f9f9;
-            padding: 18px 25px;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
-        }
+    .company-line span { font-size: 12.5px; font-weight: 500; color: var(--muted); }
+    .company-line strong { font-size: 12.5px; font-weight: 700; color: var(--slate); letter-spacing: .06em; text-transform: uppercase; }
+    .sep { color: var(--silver); }
 
-        .footer-text {
-            font-size: 11px;
-            color: #999;
-            margin-bottom: 10px;
-        }
+    .rule {
+      width: 36px; height: 2px;
+      background: linear-gradient(90deg, var(--red), #f83358);
+      border-radius: 2px;
+      margin: 0 auto 14px;
+    }
 
-        .web-link {
-            display: inline-block;
-            color: #D32F2F;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 12px;
-            transition: color 0.3s ease;
-        }
+    .tagline {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 320px;
+      margin: 0 auto 24px;
+    }
 
-        .web-link:hover {
-            color: #B71C1C;
-            text-decoration: underline;
-        }
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--silver);
+      border: 1px solid var(--silver);
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      margin-bottom: 20px;
+      text-align: left;
+    }
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .card {
-                border-radius: 16px;
-            }
+    .crow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      background: var(--white);
+      text-decoration: none;
+      transition: background .18s var(--ease);
+    }
 
-            .card-header {
-                padding: 30px 15px 20px;
-            }
+    .crow:hover { background: var(--fog); }
+    .crow:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
 
-            .card-body {
-                padding: 50px 20px 25px;
-            }
+    .crow-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(206,14,45,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+    }
 
-            .name {
-                font-size: 20px;
-            }
+    .crow-icon svg { width: 15px; height: 15px; }
+    .crow-text { min-width: 0; }
 
-            .btn {
-                padding: 12px 14px;
-                font-size: 12px;
-            }
+    .crow-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
 
-            .contact-info {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
+    .crow-val {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
-            .actions {
-                grid-template-columns: 1fr;
-            }
-        }
+    .actions { display: flex; flex-direction: column; gap: 9px; }
 
-        /* Animación hover suave para tarjeta */
-        .card:hover {
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 18px;
+      border-radius: var(--r-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active { transform: scale(0.97); }
+    .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+    .btn svg { flex-shrink: 0; width: 18px; height: 18px; }
+
+    .btn-wa { background: var(--wa); color: var(--white); box-shadow: 0 4px 18px rgba(34,197,94,.28); }
+    .btn-wa:hover { background: var(--wa-dark); box-shadow: 0 6px 22px rgba(34,197,94,.38); transform: translateY(-1px); }
+
+    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+
+    .btn-mail { background: var(--red); color: var(--white); box-shadow: 0 4px 18px var(--red-glow); }
+    .btn-mail:hover { background: var(--red-dark); box-shadow: 0 6px 22px rgba(206,14,45,.35); transform: translateY(-1px); }
+
+    .btn-web { background: var(--ink); color: var(--white); box-shadow: 0 4px 14px rgba(0,0,0,.22); }
+    .btn-web:hover { background: #2a2d38; box-shadow: 0 6px 18px rgba(0,0,0,.3); transform: translateY(-1px); }
+
+    .btn-save { background: var(--white); color: var(--slate); border: 1.5px solid var(--silver); box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    .btn-save:hover { border-color: var(--red); color: var(--red); box-shadow: 0 4px 16px rgba(206,14,45,.1); transform: translateY(-1px); }
+
+    .card-footer { padding: 14px 28px 20px; text-align: center; }
+
+    .footer-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--silver), transparent);
+      margin-bottom: 14px;
+    }
+
+    .footer-text { font-size: 10px; font-weight: 600; color: #b8bcc8; letter-spacing: .1em; text-transform: uppercase; }
+    .footer-text strong { color: var(--red); }
+
+    @media (min-width: 480px) {
+      .card { max-width: 460px; }
+      .name { font-size: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .card > * { animation: none; }
+      .btn, .crow { transition: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <!-- Header con logo -->
-            <div class="card-header">
-                <div class="logo-container">
-                    <img src="intralox-logo.png" alt="INTRALOX Logo" onerror="this.style.display='none'">
-                </div>
-            </div>
 
-            <!-- Fotografía circular -->
-            <div class="photo-container">
-                <img src="diana.jpg" alt="Diana Belinda Nuevo Rosas" class="photo">
-            </div>
+<div class="card" role="main">
 
-            <!-- Contenido principal -->
-            <div class="card-body">
-                <h1 class="name">Diana Belinda Nuevo Rosas</h1>
-                <div class="title">Account Manager</div>
-                <div class="company">INTRALOX</div>
+  <header class="card-header">
+    <div class="hd hd-1" aria-hidden="true"></div>
+    <div class="hd hd-2" aria-hidden="true"></div>
+    <div class="hd hd-3" aria-hidden="true"></div>
 
-                <div class="divider"></div>
-
-                <!-- Información de contacto -->
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-item-label">Email</span>
-                        <span class="contact-item-value">diana.nuevo@intralox.com.mx</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-item-label">WhatsApp</span>
-                        <span class="contact-item-value">+52 722 261 7192</span>
-                    </div>
-                </div>
-
-                <!-- Botones de acción -->
-                <div class="actions">
-                    <a href="https://wa.me/527222617192" class="btn btn-primary" title="Enviar mensaje por WhatsApp">
-                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.052 0-2.069.338-2.955.967l-.21.138-2.175-.571.581 2.087.135.214c-.57.936-.898 2.01-.898 3.15 0 3.402 2.769 6.162 6.163 6.162 1.65 0 3.195-.635 4.363-1.786 1.168-1.15 1.813-2.686 1.813-4.357 0-3.393-2.77-6.162-6.163-6.162m5.204-3.799c2.902 2.909 4.692 6.927 4.692 11.326 0 8.841-7.19 16.02-16.02 16.02C6.455 23.99 0 17.537 0 9.696 0 1.856 7.19 0 16.02 0c4.4 0 8.419 1.791 11.326 4.695z"/>
-                        </svg>
-                        WhatsApp
-                    </a>
-                    <a href="mailto:diana.nuevo@intralox.com.mx" class="btn btn-secondary" title="Enviar correo electrónico">
-                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        Email
-                    </a>
-                    <a href="https://www.intralox.com/es" target="_blank" rel="noopener" class="btn btn-secondary" title="Visitar sitio web">
-                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-                        </svg>
-                        Web
-                    </a>
-                    <button onclick="descargarVCard()" class="btn btn-secondary" title="Guardar contacto">
-                        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54h2.86v4h2v-4h2.86l-2.75-3.54 1.96-2.36H9.5V4h-2v4H4.64l1.96 2.36z"/>
-                        </svg>
-                        Contacto
-                    </button>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="card-footer">
-                <p class="footer-text">© 2024 INTRALOX</p>
-                <a href="https://www.intralox.com/es" class="web-link">www.intralox.com/es</a>
-            </div>
+    <div class="logo-wrap">
+      <img src="intralox-logo.png" alt="INTRALOX" class="logo-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="logo-fb" aria-label="INTRALOX">
+        <div class="logo-fb-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
+            <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
+          </svg>
         </div>
+        <span class="logo-fb-text">INTRALOX</span>
+      </div>
     </div>
 
-    <script>
-        /**
-         * Función para generar y descargar vCard (archivo .vcf)
-         */
-        function descargarVCard() {
-            const vcard = `BEGIN:VCARD
-VERSION:3.0
-FN:Diana Belinda Nuevo Rosas
-N:Nuevo Rosas;Diana Belinda;;;
-ORG:INTRALOX
-TITLE:Account Manager
-EMAIL;TYPE=WORK:diana.nuevo@intralox.com.mx
-TEL;TYPE=CELL,WHATSAPP:+527222617192
-URL:https://www.intralox.com/es
-END:VCARD`;
+    <div class="photo-anchor">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="diana.jpg" alt="Diana Belinda Nuevo Rosas"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="photo-ph" aria-label="Foto de perfil">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9aa0ad" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-            // Crear blob con el contenido
-            const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
-            
-            // Crear enlace temporal y disparar descarga
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'Diana-Nuevo-Rosas-INTRALOX.vcf');
-            link.style.visibility = 'hidden';
-            
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+  <div class="card-body">
 
-        // Feedback visual al descargar contacto
-        document.querySelector('button[onclick="descargarVCard()"]').addEventListener('click', function(e) {
-            const originalText = this.textContent;
-            this.textContent = '✓ Descargado';
-            setTimeout(() => {
-                this.textContent = originalText;
-            }, 2000);
-        });
-    </script>
+    <div class="badge">Account Manager</div>
+    <h1 class="name">Diana Belinda Nuevo Rosas</h1>
+    <div class="company-line">
+      <strong>INTRALOX</strong>
+      <span class="sep">·</span>
+      <span>México</span>
+    </div>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="tagline">Soluciones de bandas transportadoras modulares y tecnología de movimiento industrial.</p>
+
+    <div class="contacts" role="list" aria-label="Información de contacto">
+
+      <a class="crow" href="mailto:diana.nuevo@intralox.com.mx" role="listitem" aria-label="Enviar email a Diana">
+        <div class="crow-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="crow-text">
+          <div class="crow-label">Email</div>
+          <div class="crow-val">diana.nuevo@intralox.com.mx</div>
+        </div>
+      </a>
+
+      <a class="crow" href="https://wa.me/527222617192" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Escribir por WhatsApp">
+        <div class="crow-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <div class="crow-text">
+          <div class="crow-label">WhatsApp</div>
+          <div class="crow-val">+52 722 261 7192</div>
+        </div>
+      </a>
+
+      <a class="crow" href="https://www.intralox.com/es" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Visitar sitio web">
+        <div class="crow-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+        </div>
+        <div class="crow-text">
+          <div class="crow-label">Sitio web</div>
+          <div class="crow-val">intralox.com/es</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="actions" aria-label="Acciones">
+
+      <a class="btn btn-wa" href="https://wa.me/527222617192" target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        WhatsApp
+      </a>
+
+      <div class="btn-row">
+        <a class="btn btn-mail" href="mailto:diana.nuevo@intralox.com.mx" aria-label="Enviar correo electrónico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email
+        </a>
+        <a class="btn btn-web" href="https://www.intralox.com/es" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio web de INTRALOX">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+          Sitio web
+        </a>
+      </div>
+
+      <button class="btn btn-save" onclick="saveContact()" aria-label="Guardar contacto en el teléfono">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+          <path d="M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+        Guardar contacto
+      </button>
+
+    </nav>
+  </div>
+
+  <footer class="card-footer">
+    <div class="footer-rule" aria-hidden="true"></div>
+    <p class="footer-text"><strong>INTRALOX</strong>&ensp;&mdash;&ensp;Moving Industry Forward&trade;</p>
+  </footer>
+
+</div>
+
+<script>
+  function saveContact() {
+    var v =
+      "BEGIN:VCARD\r\nVERSION:3.0\r\n" +
+      "FN:Diana Belinda Nuevo Rosas\r\n" +
+      "N:Nuevo Rosas;Diana Belinda;;;\r\n" +
+      "ORG:INTRALOX\r\n" +
+      "TITLE:Account Manager\r\n" +
+      "EMAIL;TYPE=WORK:diana.nuevo@intralox.com.mx\r\n" +
+      "TEL;TYPE=CELL,WHATSAPP:+527222617192\r\n" +
+      "URL:https://www.intralox.com/es\r\n" +
+      "END:VCARD";
+    var b = new Blob([v], { type: "text/vcard;charset=utf-8" });
+    var u = URL.createObjectURL(b);
+    var a = Object.assign(document.createElement("a"), { href: u, download: "Diana_Nuevo_Rosas_INTRALOX.vcf" });
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(u);
+  }
+</script>
+
 </body>
 </html>

@@ -12,23 +12,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red:        #CE0E2D;
-      --red-dark:   #a50b25;
-      --red-glow:   rgba(206,14,45,0.22);
-      --charcoal:   #111318;
-      --dark:       #1c1f28;
-      --ink:        #1a1a1a;
-      --slate:      #444a56;
-      --muted:      #7a8091;
-      --silver:     #e8eaed;
-      --fog:        #f4f5f7;
-      --white:      #ffffff;
-      --wa:         #22c55e;
-      --wa-dark:    #16a34a;
-      --r:          20px;
-      --r-sm:       12px;
-      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
-      --spring:     cubic-bezier(0.22, 1, 0.36, 1);
+      --red:      #CE0E2D;
+      --red-dark: #a50b25;
+      --ink:      #111318;
+      --slate:    #3d4252;
+      --muted:    #7a8091;
+      --silver:   #e4e7ec;
+      --fog:      #f6f7f9;
+      --white:    #ffffff;
+      --wa:       #22c55e;
+      --wa-dark:  #16a34a;
+      --r:        26px;
+      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+      --spring:   cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     html { scroll-behavior: smooth; }
@@ -38,15 +34,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 16px;
+      padding: 24px 16px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
                    'Helvetica Neue', Arial, sans-serif;
-      background: var(--charcoal);
+      background: #0e1017;
       background-image:
-        radial-gradient(ellipse 90% 55% at 50% -5%, var(--red-glow) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 40% at 50% 110%, rgba(206,14,45,0.06) 0%, transparent 60%);
-      position: relative;
-      overflow-x: hidden;
+        radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(206,14,45,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 50% 105%,  rgba(206,14,45,0.06) 0%, transparent 55%);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -54,8 +48,8 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
-      background-size: 28px 28px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 26px 26px;
       pointer-events: none;
       z-index: 0;
     }
@@ -64,146 +58,129 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 440px;
-      background: var(--white);
+      max-width: 420px;
       border-radius: var(--r);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04),
-        0 8px 32px rgba(0,0,0,0.28),
-        0 32px 80px rgba(0,0,0,0.22),
-        0 2px 16px var(--red-glow);
       overflow: hidden;
-      animation: cardIn .7s var(--spring) both;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 8px 30px rgba(0,0,0,0.40),
+        0 28px 72px rgba(0,0,0,0.30),
+        0 2px 20px rgba(206,14,45,0.12);
+      animation: cardIn .65s var(--spring) both;
     }
 
     @keyframes cardIn {
-      from { opacity: 0; transform: translateY(28px) scale(0.96); }
+      from { opacity: 0; transform: translateY(24px) scale(0.97); }
       to   { opacity: 1; transform: none; }
     }
 
-    .card > * { animation: fadeUp .5s var(--spring) both; }
-    .card-header  { animation-delay: .05s; }
-    .card-body    { animation-delay: .15s; }
-    .card-footer  { animation-delay: .25s; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: none; }
-    }
-
-    .card-header {
+    .photo-wrap {
       position: relative;
-      background: linear-gradient(160deg, #111318 0%, #1c202c 100%);
-      padding: 28px 28px 80px;
+      width: 100%;
+      height: 300px;
       overflow: hidden;
+      background: #1c1e26;
     }
 
-    .card-header::after {
-      content: '';
-      position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
-      background: linear-gradient(90deg, var(--red-dark), #f0254a, var(--red-dark));
+    .photo-wrap img.hero {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
     }
 
-    .card-header::before {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 56px;
-      background: var(--white);
-      border-radius: 55% 55% 0 0 / 100% 100% 0 0;
-    }
-
-    .hd {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hd-1 { top: -28px; right: -28px; width: 150px; height: 150px; border: 1px solid rgba(206,14,45,0.18); }
-    .hd-2 { top: -8px;  right: -8px;  width: 110px; height: 110px; border: 1px solid rgba(255,255,255,0.05); }
-    .hd-3 { bottom: 32px; left: -40px; width: 100px; height: 100px; border: 1px solid rgba(206,14,45,0.1); }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo-img {
-      height: 26px;
-      width: auto;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
-    .logo-fb { display: none; align-items: center; gap: 9px; }
-
-    .logo-fb-icon {
-      width: 30px; height: 30px;
-      background: var(--red);
-      border-radius: 7px;
-      display: flex;
+    .photo-placeholder {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #1c1e26 0%, #252836 100%);
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      flex-direction: column;
+      gap: 12px;
+      color: #555;
     }
 
-    .logo-fb-text {
-      font-size: 16px;
+    .photo-placeholder svg { opacity: .4; }
+    .photo-placeholder span { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .4; }
+
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 90px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(14,16,23,0.18) 60%, rgba(14,16,23,0.45) 100%);
+      pointer-events: none;
+    }
+
+    .logo-on-photo {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 3;
+    }
+
+    .logo-on-photo img {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      border-radius: 7px;
+    }
+
+    .logo-text-fb {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 9px;
+      padding: 6px 11px;
+    }
+
+    .logo-text-fb span {
+      font-size: 15px;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: .12em;
       color: var(--white);
       text-transform: uppercase;
     }
 
-    .photo-anchor {
-      position: absolute;
-      bottom: -52px;
-      left: 50%;
-      transform: translateX(-50%);
+    .logo-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      position: relative;
+      background: var(--white);
+      border-radius: 24px 24px 0 0;
+      margin-top: -24px;
       z-index: 2;
+      padding: 0 24px 28px;
     }
 
-    .photo-ring {
-      width: 108px; height: 108px;
-      border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(145deg, var(--red) 0%, #f83358 100%);
-      box-shadow: 0 6px 28px rgba(206,14,45,0.40), 0 2px 8px rgba(0,0,0,0.25);
-    }
-
-    .photo-inner {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      border: 3.5px solid var(--white);
-      overflow: hidden;
-      background: var(--fog);
+    .accent-bar {
       display: flex;
-      align-items: center;
       justify-content: center;
+      padding: 14px 0 20px;
     }
 
-    .photo-inner img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
+    .accent-bar::before {
+      content: '';
       display: block;
+      width: 44px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 3px;
     }
 
-    .photo-ph {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 100%; height: 100%;
-      background: linear-gradient(145deg, #dde0e6 0%, #c8ccd4 100%);
-      border-radius: 50%;
-    }
-
-    .card-body { padding: 64px 28px 28px; text-align: center; }
+    .identity { text-align: center; margin-bottom: 20px; }
 
     .badge {
       display: inline-flex;
@@ -211,19 +188,18 @@
       gap: 6px;
       background: rgba(206,14,45,0.08);
       color: var(--red);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: .13em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 4px 12px;
       border-radius: 100px;
-      border: 1px solid rgba(206,14,45,0.2);
+      border: 1px solid rgba(206,14,45,0.22);
       margin-bottom: 10px;
     }
 
     .badge::before {
       content: '';
-      display: block;
       width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--red);
@@ -231,10 +207,10 @@
     }
 
     .name {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       color: var(--ink);
-      letter-spacing: -.02em;
+      letter-spacing: -.025em;
       line-height: 1.15;
       margin-bottom: 5px;
     }
@@ -243,126 +219,83 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 7px;
+      margin-bottom: 13px;
     }
 
-    .company-line span { font-size: 12.5px; font-weight: 500; color: var(--muted); }
-    .company-line strong { font-size: 12.5px; font-weight: 700; color: var(--slate); letter-spacing: .06em; text-transform: uppercase; }
-    .sep { color: var(--silver); }
-
-    .rule {
-      width: 36px; height: 2px;
-      background: linear-gradient(90deg, var(--red), #f83358);
-      border-radius: 2px;
-      margin: 0 auto 14px;
-    }
+    .company-line strong { font-size: 12px; font-weight: 700; color: var(--slate); letter-spacing: .07em; text-transform: uppercase; }
+    .company-line span { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .dot { color: var(--silver); }
 
     .tagline {
       font-size: 12.5px;
       color: var(--muted);
       line-height: 1.65;
-      max-width: 320px;
-      margin: 0 auto 24px;
+      max-width: 330px;
+      margin: 0 auto;
     }
 
-    .contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--silver);
-      border: 1px solid var(--silver);
-      border-radius: var(--r-sm);
-      overflow: hidden;
-      margin-bottom: 20px;
-      text-align: left;
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--silver), transparent);
+      margin: 20px 0;
     }
 
-    .crow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 14px;
-      background: var(--white);
-      text-decoration: none;
-      transition: background .18s var(--ease);
-    }
-
-    .crow:hover { background: var(--fog); }
-    .crow:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
-
-    .crow-icon {
-      flex-shrink: 0;
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: rgba(206,14,45,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--red);
-    }
-
-    .crow-icon svg { width: 15px; height: 15px; }
-    .crow-text { min-width: 0; }
-
-    .crow-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-
-    .crow-val {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .actions { display: flex; flex-direction: column; gap: 9px; }
+    .btn-stack { display: flex; flex-direction: column; gap: 10px; }
 
     .btn {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 9px;
+      gap: 12px;
       padding: 14px 18px;
-      border-radius: var(--r-sm);
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: .02em;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: none;
       border: none;
       cursor: pointer;
       width: 100%;
-      transition: background .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease);
+      text-align: left;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .15s var(--ease);
       -webkit-tap-highlight-color: transparent;
     }
 
-    .btn:active { transform: scale(0.97); }
+    .btn:active  { transform: scale(0.97) !important; }
     .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-    .btn svg { flex-shrink: 0; width: 18px; height: 18px; }
+
+    .btn-icon {
+      flex-shrink: 0;
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-icon svg { width: 20px; height: 20px; }
+
+    .btn-label { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .btn-sublabel { font-size: 10px; font-weight: 500; opacity: .75; letter-spacing: .02em; }
+    .btn-val { font-size: 13.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
     .btn-wa { background: var(--wa); color: var(--white); box-shadow: 0 4px 18px rgba(34,197,94,.28); }
-    .btn-wa:hover { background: var(--wa-dark); box-shadow: 0 6px 22px rgba(34,197,94,.38); transform: translateY(-1px); }
+    .btn-wa:hover { background: var(--wa-dark); box-shadow: 0 6px 24px rgba(34,197,94,.36); transform: translateY(-1px); }
+    .btn-wa .btn-icon { background: rgba(0,0,0,0.12); }
 
-    .btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .btn-mail { background: var(--red); color: var(--white); box-shadow: 0 4px 18px rgba(206,14,45,.24); }
+    .btn-mail:hover { background: var(--red-dark); box-shadow: 0 6px 24px rgba(206,14,45,.34); transform: translateY(-1px); }
+    .btn-mail .btn-icon { background: rgba(0,0,0,0.12); }
 
-    .btn-mail { background: var(--red); color: var(--white); box-shadow: 0 4px 18px var(--red-glow); }
-    .btn-mail:hover { background: var(--red-dark); box-shadow: 0 6px 22px rgba(206,14,45,.35); transform: translateY(-1px); }
+    .btn-web { background: var(--ink); color: var(--white); box-shadow: 0 4px 16px rgba(0,0,0,.22); }
+    .btn-web:hover { background: #1e2130; box-shadow: 0 6px 22px rgba(0,0,0,.32); transform: translateY(-1px); }
+    .btn-web .btn-icon { background: rgba(255,255,255,0.08); }
 
-    .btn-web { background: var(--ink); color: var(--white); box-shadow: 0 4px 14px rgba(0,0,0,.22); }
-    .btn-web:hover { background: #2a2d38; box-shadow: 0 6px 18px rgba(0,0,0,.3); transform: translateY(-1px); }
-
-    .btn-save { background: var(--white); color: var(--slate); border: 1.5px solid var(--silver); box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    .btn-save { background: var(--white); color: var(--ink); border: 1.5px solid var(--silver); box-shadow: 0 2px 10px rgba(0,0,0,.06); }
     .btn-save:hover { border-color: var(--red); color: var(--red); box-shadow: 0 4px 16px rgba(206,14,45,.1); transform: translateY(-1px); }
+    .btn-save .btn-icon { background: var(--fog); }
+    .btn-save:hover .btn-icon { background: rgba(206,14,45,.07); color: var(--red); }
 
-    .card-footer { padding: 14px 28px 20px; text-align: center; }
+    .card-footer { background: var(--white); padding: 4px 24px 22px; text-align: center; }
 
     .footer-rule {
       height: 1px;
@@ -373,145 +306,132 @@
     .footer-text { font-size: 10px; font-weight: 600; color: #b8bcc8; letter-spacing: .1em; text-transform: uppercase; }
     .footer-text strong { color: var(--red); }
 
-    @media (min-width: 480px) {
-      .card { max-width: 460px; }
-      .name { font-size: 28px; }
+    @media (min-width: 440px) {
+      .photo-wrap { height: 320px; }
+      .name { font-size: 26px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .card, .card > * { animation: none; }
-      .btn, .crow { transition: none; }
+      .card { animation: none; }
+      .btn { transition: none; }
     }
   </style>
 </head>
 <body>
 
-<div class="card" role="main">
+<article class="card" role="main">
 
-  <header class="card-header">
-    <div class="hd hd-1" aria-hidden="true"></div>
-    <div class="hd hd-2" aria-hidden="true"></div>
-    <div class="hd hd-3" aria-hidden="true"></div>
+  <div class="photo-wrap">
+    <img
+      class="hero"
+      src="diana.jpg"
+      alt="Diana Belinda Nuevo Rosas, Account Manager de INTRALOX"
+      onerror="this.style.display='none'; this.parentElement.querySelector('.photo-placeholder').style.display='flex';"
+    />
+    <div class="photo-placeholder" aria-hidden="true">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span>diana.jpg</span>
+    </div>
 
-    <div class="logo-wrap">
-      <img src="intralox-logo.png" alt="INTRALOX" class="logo-img"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="logo-fb" aria-label="INTRALOX">
-        <div class="logo-fb-icon" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
-            <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
-          </svg>
-        </div>
-        <span class="logo-fb-text">INTRALOX</span>
+    <div class="logo-on-photo">
+      <img
+        src="intralox-logo.png"
+        alt="INTRALOX"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="logo-text-fb" aria-label="INTRALOX">
+        <div class="logo-dot" aria-hidden="true"></div>
+        <span>INTRALOX</span>
       </div>
     </div>
+  </div>
 
-    <div class="photo-anchor">
-      <div class="photo-ring">
-        <div class="photo-inner">
-          <img src="diana.jpg" alt="Diana Belinda Nuevo Rosas"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="photo-ph" aria-label="Foto de perfil">
-            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9aa0ad" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
-        </div>
+  <div class="card-content">
+
+    <div class="accent-bar" aria-hidden="true"></div>
+
+    <div class="identity">
+      <div class="badge">Account Manager</div>
+      <h1 class="name">Diana Belinda Nuevo Rosas</h1>
+      <div class="company-line">
+        <strong>INTRALOX</strong>
+        <span class="dot" aria-hidden="true">·</span>
+        <span>México</span>
       </div>
+      <p class="tagline">Soluciones de bandas transportadoras modulares y tecnología de movimiento industrial.</p>
     </div>
-  </header>
 
-  <div class="card-body">
+    <div class="divider" aria-hidden="true"></div>
 
-    <div class="badge">Account Manager</div>
-    <h1 class="name">Diana Belinda Nuevo Rosas</h1>
-    <div class="company-line">
-      <strong>INTRALOX</strong>
-      <span class="sep">·</span>
-      <span>México</span>
-    </div>
-    <div class="rule" aria-hidden="true"></div>
-    <p class="tagline">Soluciones de bandas transportadoras modulares y tecnología de movimiento industrial.</p>
+    <nav class="btn-stack" aria-label="Contacto">
 
-    <div class="contacts" role="list" aria-label="Información de contacto">
-
-      <a class="crow" href="mailto:diana.nuevo@intralox.com.mx" role="listitem" aria-label="Enviar email a Diana">
-        <div class="crow-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <div class="crow-text">
-          <div class="crow-label">Email</div>
-          <div class="crow-val">diana.nuevo@intralox.com.mx</div>
-        </div>
-      </a>
-
-      <a class="crow" href="https://wa.me/527222617192" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Escribir por WhatsApp">
-        <div class="crow-icon" aria-hidden="true">
+      <a class="btn btn-wa"
+         href="https://wa.me/527222617192"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Enviar mensaje por WhatsApp">
+        <div class="btn-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
         </div>
-        <div class="crow-text">
-          <div class="crow-label">WhatsApp</div>
-          <div class="crow-val">+52 722 261 7192</div>
+        <div class="btn-label">
+          <span class="btn-sublabel">WhatsApp</span>
+          <span class="btn-val">+52 722 261 7192</span>
         </div>
       </a>
 
-      <a class="crow" href="https://www.intralox.com/es" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Visitar sitio web">
-        <div class="crow-icon" aria-hidden="true">
+      <a class="btn btn-mail"
+         href="mailto:diana.nuevo@intralox.com.mx"
+         aria-label="Enviar correo electrónico">
+        <div class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="btn-label">
+          <span class="btn-sublabel">Correo electrónico</span>
+          <span class="btn-val">diana.nuevo@intralox.com.mx</span>
+        </div>
+      </a>
+
+      <a class="btn btn-web"
+         href="https://www.intralox.com/es"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Visitar sitio web de INTRALOX">
+        <div class="btn-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
           </svg>
         </div>
-        <div class="crow-text">
-          <div class="crow-label">Sitio web</div>
-          <div class="crow-val">intralox.com/es</div>
+        <div class="btn-label">
+          <span class="btn-sublabel">Sitio web</span>
+          <span class="btn-val">intralox.com/es</span>
         </div>
       </a>
-    </div>
 
-    <nav class="actions" aria-label="Acciones">
-
-      <a class="btn btn-wa" href="https://wa.me/527222617192" target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        WhatsApp
-      </a>
-
-      <div class="btn-row">
-        <a class="btn btn-mail" href="mailto:diana.nuevo@intralox.com.mx" aria-label="Enviar correo electrónico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
+      <button class="btn btn-save"
+              onclick="saveContact()"
+              aria-label="Guardar contacto en el teléfono">
+        <div class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+            <path d="M16 3.13a4 4 0 010 7.75"/>
           </svg>
-          Email
-        </a>
-        <a class="btn btn-web" href="https://www.intralox.com/es" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio web de INTRALOX">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-          </svg>
-          Sitio web
-        </a>
-      </div>
-
-      <button class="btn btn-save" onclick="saveContact()" aria-label="Guardar contacto en el teléfono">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-          <path d="M16 3.13a4 4 0 010 7.75"/>
-        </svg>
-        Guardar contacto
+        </div>
+        <div class="btn-label">
+          <span class="btn-sublabel">Agregar a contactos</span>
+          <span class="btn-val">Guardar contacto</span>
+        </div>
       </button>
 
     </nav>
@@ -522,7 +442,7 @@
     <p class="footer-text"><strong>INTRALOX</strong>&ensp;&mdash;&ensp;Moving Industry Forward&trade;</p>
   </footer>
 
-</div>
+</article>
 
 <script>
   function saveContact() {
@@ -538,7 +458,10 @@
       "END:VCARD";
     var b = new Blob([v], { type: "text/vcard;charset=utf-8" });
     var u = URL.createObjectURL(b);
-    var a = Object.assign(document.createElement("a"), { href: u, download: "Diana_Nuevo_Rosas_INTRALOX.vcf" });
+    var a = Object.assign(document.createElement("a"), {
+      href: u,
+      download: "Diana_Nuevo_Rosas_INTRALOX.vcf"
+    });
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
